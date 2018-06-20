@@ -5,9 +5,18 @@ if exists("g:loaded_line_mover") || &cp
 endif
 let g:loaded_line_mover = 1
 
+if !exists('g:line_mover_key_up')
+  let g:line_mover_key_up = '<A-k>'
+endif
+
+if !exists('g:line_mover_key_down')
+  let g:line_mover_key_down = '<A-j>'
+endif
+
 let s:lines_to_move_up = 2
 let s:lines_to_move_down = 1
 
+" Move Functions {{{1
 function! s:MoveLineUp()
   let before_line = line(".") - s:lines_to_move_up
 
@@ -60,10 +69,13 @@ function! s:MoveLineAndIndent(mCmd)
   exe a:mCmd
   call s:indentLine()
 endfunction
+" }}}1
 
+" Utilities functions {{{1
 function! s:indentLine()
   exe "normal! =="
 endfunction
+" }}}
 
 function! s:isFirstLine(currentLine)
   return a:currentLine < line("0")
@@ -79,8 +91,8 @@ nnoremap <silent> <Plug>MoveLineDown :call <SID>MoveLineDown()<cr>
 vnoremap <silent> <Plug>MoveBlockUp :call <SID>MoveBlockUp()<cr>
 vnoremap <silent> <Plug>MoveBlockDown :call <SID>MoveBlockDown()<cr>
 
-nmap <A-k> <Plug>MoveLineUp
-nmap <A-j> <Plug>MoveLineDown
+execute "nmap " g:line_mover_key_up "<Plug>MoveLineUp"
+execute "nmap " g:line_mover_key_down "<Plug>MoveLineDown"
 
-vmap <A-k> <Plug>MoveBlockUp
-vmap <A-j> <Plug>MoveBlockDown
+execute "vmap " g:line_mover_key_up "<Plug>MoveBlockUp"
+execute "vmap " g:line_mover_key_down "<Plug>MoveBlockDown"
