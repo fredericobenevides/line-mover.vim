@@ -1,0 +1,39 @@
+*line_mover.txt* Plugin to move lines up or down
+
+Author: Frederico Benevides <fredbene@gmail.com>
+Site: https://mattn.github.com/emmet-vim
+License: BSD style license
+
+==============================================================================
+CONTENTS                            *linemover-contents* *line-mover-contents*
+
+Introduction          |line-mover-introduction|
+Install               |line-mover-install|
+Mappings              |line-mover-mappings|
+
+
+==============================================================================
+INTRODUCTION                            *line-mover-introduction* *line-mover*
+
+Line-mover is a plugin to to move lines or block of lines up or down
+
+==============================================================================
+INSTALL                                                   *line-mover-install*
+
+Using vim-plug:
+
+Plug 'fredericobenevides/line-mover.vim'
+
+==============================================================================
+Mappings                                                 *line-mover-mappings*
+
+The default mappings for this plugin are <A-k> to move line or up and <A-j>
+to move down.
+
+If you want to change the default mapping you can you use theses keys:
+
+Change to key to move up:
+let g:line_mover_key_up = '<C-k>'
+
+Change to key to move down:
+let g:line_mover_key_down = '<C-j>'
