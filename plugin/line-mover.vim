@@ -53,7 +53,7 @@ function! s:MoveBlockUp() range
 endfunction
 
 function! s:MoveBlockDown() range
-  let next_line = line(".") + s:lines_to_move_down
+  let next_line = line(".") + s:lines_to_move_down + 1
 
   if s:isEndOfLine(next_line)
     return
