@@ -40,7 +40,7 @@ function! s:MoveLineDown()
 endfunction
 
 function! s:MoveBlockUp() range
-  let before_line = line(".") + s:lines_to_move_up
+  let before_line = line(".") - s:lines_to_move_up
 
   if s:isFirstLine(before_line)
     return
