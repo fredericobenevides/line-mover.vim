@@ -85,14 +85,20 @@ function! s:isEndOfLine(currentLine)
   return a:currentLine > line("$")
 endfunction
 
+inoremap <silent> <Plug>MoveLineUp :call <SID>MoveLineUp()<cr>
+inoremap <silent> <Plug>MoveLineDown :call <SID>MoveLineDown()<cr>
+
 nnoremap <silent> <Plug>MoveLineUp :call <SID>MoveLineUp()<cr>
 nnoremap <silent> <Plug>MoveLineDown :call <SID>MoveLineDown()<cr>
 
 vnoremap <silent> <Plug>MoveBlockUp :call <SID>MoveBlockUp()<cr>
 vnoremap <silent> <Plug>MoveBlockDown :call <SID>MoveBlockDown()<cr>
 
-execute "nmap " g:line_mover_key_up "<Plug>MoveLineUp"
-execute "nmap " g:line_mover_key_down "<Plug>MoveLineDown"
+execute "inoremap " g:line_mover_key_up "<Plug>MoveLineUp"
+execute "inoremap " g:line_mover_key_down "<Plug>MoveLineDown"
 
-execute "vmap " g:line_mover_key_up "<Plug>MoveBlockUp"
-execute "vmap " g:line_mover_key_down "<Plug>MoveBlockDown"
+execute "nnoremap " g:line_mover_key_up "<Plug>MoveLineUp"
+execute "nnoremap " g:line_mover_key_down "<Plug>MoveLineDown"
+
+execute "vnoremap " g:line_mover_key_up "<Plug>MoveBlockUp"
+execute "vnoremap " g:line_mover_key_down "<Plug>MoveBlockDown"
